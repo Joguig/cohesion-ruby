@@ -1,0 +1,10 @@
+{
+	"channel": "#cohesion",
+	"build": {
+		"branches": {
+			"*": {
+				"failure": true
+			}
+		}
+	}
+}

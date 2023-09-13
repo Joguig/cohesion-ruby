@@ -1,0 +1,21 @@
+{
+	"image": "ubuntu:precise",
+	"mount": "/build",
+	"env": [
+		"PATH=/.rbenv/bin:/root/.rbenv/shims:/.rbenv/shims:$PATH"
+	],
+	"setup": [
+		"apt-get update && apt-get install -y git build-essential libcurl4-openssl-dev libreadline-dev",
+		"git clone https://github.com/sstephenson/rbenv.git /.rbenv",
+		"git clone https://github.com/sstephenson/ruby-build.git /ruby-build",
+		"/ruby-build/install.sh",
+		"rbenv install 2.1.5",
+		"rbenv global 2.1.5",
+		"rbenv rehash",
+		"gem install bundler rspec"
+	],
+	"build": [
+		"bundle",
+		"bundle exec rspec spec"
+	]
+}
